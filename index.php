@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+use Map\DB\Sql;
 
 require_once("vendor/autoload.php");
 
@@ -8,7 +10,10 @@ $app->config('debug', true);
 
 $app->get('/', function() {
     
-	echo "OK";
+	$sql = new Sql();
+	$result = $sql->select("select * from tb_users");
+
+	echo json_encode($result, true);
 
 });
 
