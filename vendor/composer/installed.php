@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '1b7690fd55b374e96e29341175ecb1a3404bbdee',
+    'reference' => '24de158ecb1bf62de25628d2b527830c4c0db959',
     'name' => 'vitorlimaa/ecommerce',
   ),
   'versions' => 
@@ -45,7 +45,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '1b7690fd55b374e96e29341175ecb1a3404bbdee',
+      'reference' => '24de158ecb1bf62de25628d2b527830c4c0db959',
     ),
   ),
 );

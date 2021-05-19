@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Admin Produtos</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="/res/admin/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/res/admin/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="/res/admin/dist/css/skins/skin-blue.min.css">
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <!-- Main Header -->
+  <header class="main-header">
+
+    <!-- Logo -->
+    <a href="/admin" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>A</b>DM</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Admin</b> Produtos</span>
+    </a>
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          <li class="dropdown messages-menu">
+            <!-- Menu toggle button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-envelope-o"></i>
+              <span class="label label-success">4</span>
+            </a>
+            
+          </li>
+          <!-- /.messages-menu -->
+
+          <!-- Notifications Menu -->
+          <li class="dropdown notifications-menu">
+            <!-- Menu toggle button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning">10</span>
+            </a>
+          </li>
+          <!-- Tasks Menu -->
+          <li class="dropdown tasks-menu">
+            <!-- Menu Toggle Button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-flag-o"></i>
+              <span class="label label-danger">9</span>
+            </a>
+          </li>
+          <!-- User Account Menu -->
+          <li class="dropdown user user-menu">
+            <!-- Menu Toggle Button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <!-- The user image in the navbar-->
+              <img src="/res/admin/dist/img/anonimo.png" class="user-image" alt="User Image">
+              <!-- hidden-xs hides the username on small devices so only the image appears. -->
+              <span class="hidden-xs">Vitor - Suporte</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- The user image in the menu -->
+              <li class="user-header">
+                <img src="/res/admin/dist/img/anonimo.png" class="img-circle" alt="User Image">
+
+                <p>
+                  Vitor lima - Suporte
+                  <small></small>
+                </p>
+              </li>
+              <!-- Menu Body -->
+              <li class="user-body">
+                <div class="row">
+                  <div class="col-xs-4 text-center">
+                    <a href="#"></a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#"></a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#"></a>
+                  </div>
+                </div>
+                <!-- /.row -->
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                </div>
+                <div class="pull-right">
+                  <a href="/admin/logout" class="btn btn-default btn-flat">Sair</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+          <!-- Sidebar user panel (optional) -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="/res/admin/dist/img/anonimo.png" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+              <p>Vitor - Suporte</p>
+              <!-- Status -->
+              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+          </div>
+    
+          <!-- search form (Optional) -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="q" class="form-control" placeholder="Pesquisar...">
+                  <span class="input-group-btn">
+                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                    </button>
+                  </span>
+            </div>
+          </form>
+          <!-- /.search form -->
+    
+          <!-- Sidebar Menu -->
+          <ul class="sidebar-menu">
+            <li class="header">Menu</li>
+            <!-- Optionally, you can add icons to the links -->
+            <li class="active"><a href="/admin/users"><i class="fa fa-th-list"></i> <span>Cadastro de Usuário</span></a></li>
+            <li class="treeview">
+              <a href="#"><i class="fa fa-indent"></i> <span>Lista de produtos dos MKTP</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-right pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu" id="mktp">
+                <li><a href="/admin/product"><i class="fa fa-circle-o"></i>B2w Stilo</a></li>
+                <li><a href="/admin/product/b2wclick"><i class="fa fa-circle-o"></i>B2w Click</a></li>
+                <li><a href="/admin/product/magalustilo"><i class="fa fa-circle-o"></i>Magalu Stilo</a></li>
+                <li><a href="/admin/product/magaluclick"><i class="fa fa-circle-o"></i>Magalu Click</a></li>
+                <li><a href="/admin/product/mlclick/importar"><i class="fa fa-file-excel-o"></i>Importação Mercado Livre Click</a></li>
+                <li><a href="/admin/product/mlclick"><i class="fa fa-circle-o"></i>Mercado Livre Click</a></li>
+                <li><a href="#"></a></li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#"><i class="fa fa-bar-chart"></i> <span>Validação de produtos</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-right pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li class="treeview active">
+                  <a href="#">
+                    <i class="fa fa-share"></i><span>Estoque</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu menu-open" style="display: none;">
+                    <li><a href="/admin/estoquestilo"><i class="fa fa-file-excel-o"></i>Importar Planilha Stilo</a></li>
+                    <li><a href="/admin/estoqueclick"><i class="fa fa-file-excel-o"></i>Importar Planilha Click</a></li>
+                    <li><a href="/admin/estoque/b2wstilo"><i class="fa fa-circle-o"></i>B2W Stilo</a></li>
+                    <li><a href="/admin/estoque/b2wclick"><i class="fa fa-circle-o"></i>B2w Click</a></li>
+                    <li><a href="/admin/estoque/magalustilo"><i class="fa fa-circle-o"></i>Magalu Stilo</a></li>
+                    <li><a href="/admin/estoque/magaluclick"><i class="fa fa-circle-o"></i>Magalu Click</a></li>
+                    <li><a href="/admin/estoque/mlclick"><i class="fa fa-circle-o"></i>Mercado Livre Click</a></li>
+                  </ul>
+                </li>
+                <li class="treeview active">
+                  <a href="#">
+                    <i class="fa fa-share"></i> <span>Preço</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu menu-open" style="display: none;">
+                    <li><a href="/admin/precostilo"><i class="fa fa-file-excel-o"></i>Importar Planilha Stilo</a></li>
+                    <li><a href="/admin/precoclick"><i class="fa fa-file-excel-o"></i>Importar Planilha Click</a></li>
+                    <li><a href="/admin/preco/b2wstilo"><i class="fa fa-circle-o"></i>B2W Stilo</a></li>
+                    <li><a href="/admin/preco/b2wclick"><i class="fa fa-circle-o"></i>B2w Click</a></li>
+                    <li><a href="/admin/preco/magalustilo"><i class="fa fa-circle-o"></i>Magalu Stilo</a></li>
+                    <li><a href="/admin/preco/magaluclick"><i class="fa fa-circle-o"></i>Magalu Click</a></li>
+                    <li><a href="/admin/preco/mlclick"><i class="fa fa-circle-o"></i>Mercado Livre Click</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#"><i class="fa fa-table"></i> <span>Lista de produtos ERP</span></a></li>
+          </ul>
+          <!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+      </aside>
