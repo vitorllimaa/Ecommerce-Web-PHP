@@ -4,10 +4,6 @@
     <h1>
       Lista de Usuários
     </h1>
-    <ol class="breadcrumb">
-      <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active"><a href="/admin/users">Usuários</a></li>
-    </ol>
   </section>
   
   <!-- Main content -->
@@ -16,7 +12,11 @@
     <div class="row">
       <div class="col-md-12">
         <div class="box box-primary">
-              
+              <style>
+                .btn-success{
+                  transform: translate(0px, -10px);
+                }
+              </style>
               <div class="box-header">
                 <a href="/admin/users/create" class="btn btn-success">Cadastrar Usuário</a>
               </div>

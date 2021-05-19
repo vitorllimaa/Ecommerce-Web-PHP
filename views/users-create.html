@@ -52,6 +52,11 @@
             </div>
           </div>
           <!-- /.box-body -->
+          <style>
+            .btn-success{
+              transform: translate(0px, -10px);
+            }
+          </style>  
           <div class="box-footer">
             <button type="submit" class="btn btn-success">Cadastrar</button>
           </div>

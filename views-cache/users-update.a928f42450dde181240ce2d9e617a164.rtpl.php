@@ -43,6 +43,11 @@
             </div>
           </div>
           <!-- /.box-body -->
+          <style>
+            .btn-primary{
+              transform: translate(0px, -10px);
+            }
+          </style>  
           <div class="box-footer">
             <button type="submit" class="btn btn-primary">Salvar</button>
           </div>

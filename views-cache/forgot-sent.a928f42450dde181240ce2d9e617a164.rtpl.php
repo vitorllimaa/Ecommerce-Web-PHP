@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Produtos</title>
+  <title>Mega Click</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -26,7 +26,7 @@
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
   <div class="lockscreen-logo">
-    <a href="/admin/login"><b>Admin</b>Produtos</a>
+    <a href="/admin/login"><b>Mega</b>Click</a>
   </div>
 
   <!-- /.lockscreen-item -->
@@ -38,7 +38,7 @@
     </div>
   </div>
   <div class="lockscreen-footer text-center">
-    <b><a href="http://stiloeletro.com.br" class="text-black">MaisCommerce</a></b><br>
+    <b><a href="http://megaclick.com.br" class="text-black">MegaClick</a></b><br>
     All rights reserved
   </div>
 </div>

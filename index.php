@@ -6,6 +6,7 @@ require_once("vendor/autoload.php");
 use \Slim\Slim;
 use \Map\pageadmin;
 use \Map\login;
+use Map\model\Categories;
 use \Map\model\User;
 
 $app = new Slim();
@@ -145,14 +146,13 @@ $app->post("/admin/forgot", function(){
 });
 
 $app->get("/admin/forgot/reset", function(){
-    User::logout();
+   
+	User::logout();
 	$user = User::validForgotDecrypt($_GET["code"]);
 	$page = new pageadmin([
 		"header"=>false,
-		"footer"=>false
-	]);
-	
-$page->setTpl("forgot-reset", array(
+		"footer"=>false]);	
+    $page->setTpl("forgot-reset", array(
 		"name"=>$user["desperson"],
 		"code"=>$_GET["code"]
 	));
@@ -164,6 +164,63 @@ $app->post("/admin/forgot/reset", function(){
 	$user = User::validForgotDecrypt($_POST["code"]);
 	User::setForgotUser($user["iduser"], $_POST["password"]);
 	header("Location: /admin/login");
+	exit;
+});
+
+$app->get("/admin/categories", function(){
+	
+	User::verifyLogin();
+	$page = new pageadmin();
+	$categories =  Categories::listAll();
+	
+	$page->setTpl("categories",[
+		"categories"=>$categories
+	]);
+});
+
+$app->get("/admin/categories/create", function(){
+	User::verifyLogin();
+	$page = new pageadmin();
+	$categories =  Categories::listAll();
+	
+	$page->setTpl("categories-create",[
+		"categories"=>$categories
+	]);
+});
+
+$app->post("/admin/categories/create", function(){
+    User::verifyLogin();
+	$categories = new Categories(); 
+	$categories->save($_POST);
+	header("Location: /admin/categories");
+	exit;
+});
+
+$app->get("/admin/categories/:idcategory/delete", function($idcategory){
+	User::verifyLogin();
+	$categories = new Categories(); 
+	$categories->delete((int)$idcategory);
+
+	header("Location: /admin/categories");
+	exit;
+});
+
+$app->get("/admin/categories/:idcategor", function($idcategory){
+	User::verifyLogin();
+	$page = new pageadmin();
+	$categories = new Categories();
+	$categories->get((int)$idcategory);
+
+	$page->setTpl("categories-update",[
+		"category"=>$categories->getValues()
+	]);	
+});
+
+$app->post("/admin/categories/:idcategor", function($idcategory){
+    User::verifyLogin();
+	$categories = new Categories(); 
+	$categories->saveUpdate($_POST, $idcategory);
+	header("Location: /admin/categories");
 	exit;
 });
 

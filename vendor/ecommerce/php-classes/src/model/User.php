@@ -142,7 +142,7 @@ class User extends Model {
 
 				$code = base64_encode($code);
 
-                $link = "http://www.megamais.com.br/admin/forgot/reset?code=$code";
+                $link = "http://www.megaclick.com.br/admin/forgot/reset?code=$code";
 
                 $mailer = new Mailer($data["desemail"], $data["desperson"], "Redefinir senha!", "forgot",
                 array(

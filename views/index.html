@@ -3,13 +3,9 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Home
+        Menu
         <small></small>
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Nível</a></li>
-        <li class="active">Aqui</li>
-      </ol>
     </section>
 
     <!-- Main content -->

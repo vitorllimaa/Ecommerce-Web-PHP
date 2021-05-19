@@ -1,219 +1,229 @@
 <?php if(!class_exists('Rain\Tpl')){exit;}?><!DOCTYPE html>
-
-<html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Produtos</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="/res/admin/bootstrap/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="/res/admin/dist/css/AdminLTE.min.css">
-  <link rel="stylesheet" href="/res/admin/dist/css/skins/skin-blue.min.css">
-</head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mega Click</title>
 
-<body class="hold-transition skin-blue sidebar-mini">
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="/res/admin2/plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/res/admin2/dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition sidebar-mini dark-mode">
 <div class="wrapper">
 
-  <!-- Main Header -->
-  <header class="main-header">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-dark">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="/admin" class="nav-link">Menu</a>
+      </li>
+    </ul>
 
-    <!-- Logo -->
-    <a href="/admin" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>DM</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b> Produtos</span>
-    </a>
-
-    <!-- Header Navbar -->
-    <nav class="navbar navbar-static-top" role="navigation">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-        <span class="sr-only">Toggle navigation</span>
-      </a>
-      <!-- Navbar Right Menu -->
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
-            <!-- Menu toggle button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
-            </a>
-            
-          </li>
-          <!-- /.messages-menu -->
-
-          <!-- Notifications Menu -->
-          <li class="dropdown notifications-menu">
-            <!-- Menu toggle button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
-            </a>
-          </li>
-          <!-- Tasks Menu -->
-          <li class="dropdown tasks-menu">
-            <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
-            </a>
-          </li>
-          <!-- User Account Menu -->
-          <li class="dropdown user user-menu">
-            <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <!-- The user image in the navbar-->
-              <img src="/res/admin/dist/img/anonimo.png" class="user-image" alt="User Image">
-              <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Vitor - Suporte</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- The user image in the menu -->
-              <li class="user-header">
-                <img src="/res/admin/dist/img/anonimo.png" class="img-circle" alt="User Image">
-
-                <p>
-                  Vitor lima - Suporte
-                  <small></small>
-                </p>
-              </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#"></a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#"></a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#"></a>
-                  </div>
-                </div>
-                <!-- /.row -->
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Perfil</a>
-                </div>
-                <div class="pull-right">
-                  <a href="/admin/logout" class="btn btn-default btn-flat">Sair</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
-        <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
-
-          <!-- Sidebar user panel (optional) -->
-          <div class="user-panel">
-            <div class="pull-left image">
-              <img src="/res/admin/dist/img/anonimo.png" class="img-circle" alt="User Image">
-            </div>
-            <div class="pull-left info">
-              <p>Vitor - Suporte</p>
-              <!-- Status -->
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-            </div>
-          </div>
-    
-          <!-- search form (Optional) -->
-          <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-              <input type="text" name="q" class="form-control" placeholder="Pesquisar...">
-                  <span class="input-group-btn">
-                    <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                    </button>
-                  </span>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+      <li class="nav-item">
+        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+          <i class="fas fa-search"></i>
+        </a>
+        <div class="navbar-search-block">
+          <form class="form-inline">
+            <div class="input-group input-group-sm">
+              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
             </div>
           </form>
-          <!-- /.search form -->
-    
-          <!-- Sidebar Menu -->
-          <ul class="sidebar-menu">
-            <li class="header">Menu</li>
-            <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="/admin/users"><i class="fa fa-th-list"></i> <span>Cadastro de Usuário</span></a></li>
-            <li class="treeview">
-              <a href="#"><i class="fa fa-indent"></i> <span>Lista de produtos dos MKTP</span>
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-right pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu" id="mktp">
-                <li><a href="/admin/product"><i class="fa fa-circle-o"></i>B2w Stilo</a></li>
-                <li><a href="/admin/product/b2wclick"><i class="fa fa-circle-o"></i>B2w Click</a></li>
-                <li><a href="/admin/product/magalustilo"><i class="fa fa-circle-o"></i>Magalu Stilo</a></li>
-                <li><a href="/admin/product/magaluclick"><i class="fa fa-circle-o"></i>Magalu Click</a></li>
-                <li><a href="/admin/product/mlclick/importar"><i class="fa fa-file-excel-o"></i>Importação Mercado Livre Click</a></li>
-                <li><a href="/admin/product/mlclick"><i class="fa fa-circle-o"></i>Mercado Livre Click</a></li>
-                <li><a href="#"></a></li>
-              </ul>
-            </li>
-            <li class="treeview">
-              <a href="#"><i class="fa fa-bar-chart"></i> <span>Validação de produtos</span>
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-right pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li class="treeview active">
-                  <a href="#">
-                    <i class="fa fa-share"></i><span>Estoque</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-right pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu menu-open" style="display: none;">
-                    <li><a href="/admin/estoquestilo"><i class="fa fa-file-excel-o"></i>Importar Planilha Stilo</a></li>
-                    <li><a href="/admin/estoqueclick"><i class="fa fa-file-excel-o"></i>Importar Planilha Click</a></li>
-                    <li><a href="/admin/estoque/b2wstilo"><i class="fa fa-circle-o"></i>B2W Stilo</a></li>
-                    <li><a href="/admin/estoque/b2wclick"><i class="fa fa-circle-o"></i>B2w Click</a></li>
-                    <li><a href="/admin/estoque/magalustilo"><i class="fa fa-circle-o"></i>Magalu Stilo</a></li>
-                    <li><a href="/admin/estoque/magaluclick"><i class="fa fa-circle-o"></i>Magalu Click</a></li>
-                    <li><a href="/admin/estoque/mlclick"><i class="fa fa-circle-o"></i>Mercado Livre Click</a></li>
-                  </ul>
-                </li>
-                <li class="treeview active">
-                  <a href="#">
-                    <i class="fa fa-share"></i> <span>Preço</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-right pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu menu-open" style="display: none;">
-                    <li><a href="/admin/precostilo"><i class="fa fa-file-excel-o"></i>Importar Planilha Stilo</a></li>
-                    <li><a href="/admin/precoclick"><i class="fa fa-file-excel-o"></i>Importar Planilha Click</a></li>
-                    <li><a href="/admin/preco/b2wstilo"><i class="fa fa-circle-o"></i>B2W Stilo</a></li>
-                    <li><a href="/admin/preco/b2wclick"><i class="fa fa-circle-o"></i>B2w Click</a></li>
-                    <li><a href="/admin/preco/magalustilo"><i class="fa fa-circle-o"></i>Magalu Stilo</a></li>
-                    <li><a href="/admin/preco/magaluclick"><i class="fa fa-circle-o"></i>Magalu Click</a></li>
-                    <li><a href="/admin/preco/mlclick"><i class="fa fa-circle-o"></i>Mercado Livre Click</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="#"><i class="fa fa-table"></i> <span>Lista de produtos ERP</span></a></li>
-          </ul>
-          <!-- /.sidebar-menu -->
-        </section>
-        <!-- /.sidebar -->
-      </aside>
+        </div>
+      </li>
+
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge">3</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Brad Diesel
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">Call me whenever you can...</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  John Pierce
+                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">I got your message bro</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <!-- Message Start -->
+            <div class="media">
+              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  Nora Silvester
+                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm">The subject goes here</p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+              </div>
+            </div>
+            <!-- Message End -->
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+        </div>
+      </li>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell"></i>
+          <span class="badge badge-warning navbar-badge">15</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-envelope mr-2"></i> 4 new messages
+            <span class="float-right text-muted text-sm">3 mins</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-users mr-2"></i> 8 friend requests
+            <span class="float-right text-muted text-sm">12 hours</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> 3 new reports
+            <span class="float-right text-muted text-sm">2 days</span>
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+      <style>
+        #button{
+          height: 35px;
+          transform: translate(0px, 3px);
+        }
+      </style>
+      <li class="nav-item">
+        <a href="/admin/logout" class="btn btn-danger" id="button"">Sair</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+      <a href="index3.html" class="brand-link">
+        <img src="/res/admin2/dist/img/Ícone.ico" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Mega Click</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="/res/admin2/dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block"><Var>Vitor - Suporte</Var></a>
+        </div>
+      </div>
+
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Pesquisar" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item">
+            <a href="/admin/users" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Cadastro de Usuário
+                <span class="right badge badge-danger"></span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/admin/categories" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Categoria
+                <span class="right badge badge-danger"></span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/admin/users" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Relátorios
+                <span class="right badge badge-danger"></span>
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
