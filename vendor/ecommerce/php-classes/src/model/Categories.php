@@ -25,7 +25,7 @@ class Categories extends Model {
             ":idcategory"=>null,
             ":descategory"=>$value["descategory"]
         ));
-
+        Categories::update();
     }
 
     public function delete($idcategory){
@@ -34,6 +34,7 @@ class Categories extends Model {
         $result = $sql->select("DELETE FROM tb_categories WHERE idcategory = :idcategory", array(
             ":idcategory"=>$idcategory
         ));
+        Categories::update();
     }
 
     public function get($idcategory){
@@ -55,6 +56,21 @@ class Categories extends Model {
             ":idcategory"=>$idcategory,
             ":descategory"=>$descategory["descategory"]
 
-        )); }
+        ));
+    }    
+
+    public static function update(){
+
+        $categories = Categories::listAll();
+
+        $html = [];
+
+        foreach ($categories as $values){
+            array_push($html, '<li><a href="/categories/'.$values['idcategory'].'">'.$values['descategory'].'</a></li>');
+            file_put_contents($_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR."views".DIRECTORY_SEPARATOR."site".DIRECTORY_SEPARATOR."categories-menu.html",
+             implode('', $html));
+        }
+
+    }   
 
 }

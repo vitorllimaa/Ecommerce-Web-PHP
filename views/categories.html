@@ -5,10 +5,6 @@
   <h1>
     Lista de Categorias
   </h1>
-  <ol class="breadcrumb">
-    <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active"><a href="/admin/categories">Categorias</a></li>
-  </ol>
 </section>
 
 <!-- Main content -->
@@ -17,7 +13,11 @@
   <div class="row">
   	<div class="col-md-12">
   		<div class="box box-primary">
-            
+        <style>
+          .btn-success{
+            transform: translate(0px, -10px);
+          }
+        </style>
             <div class="box-header">
               <a href="/admin/categories/create" class="btn btn-success">Cadastrar Categoria</a>
             </div>

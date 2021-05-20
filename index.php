@@ -11,15 +11,14 @@ use \Map\model\User;
 use \Map\pagesite;
 
 $app = new Slim();
+// post - envia para o banco
+//get - envia para o html
 
 $app->config('debug', true);
 
 $app->get('/', function(){
 
-     $page = new pagesite([
-		 "header"=>false,
-		 "footer"=>false
-	 ]);
+     $page = new pagesite();
 	 $page->setTpl("index");
 
 });
@@ -40,8 +39,7 @@ $app->get('/admin/login', function() {
 
 	$page->setTpl("login"); 
 });
-// post - envia para o banco
-//get - envia para o html
+
 $app->post('/admin/login', function(){
 
 	User::login($_POST["login"], $_POST["password"]);
@@ -228,6 +226,19 @@ $app->post("/admin/categories/:idcategor", function($idcategory){
 	$categories->saveUpdate($_POST, $idcategory);
 	header("Location: /admin/categories");
 	exit;
+});
+
+$app->get("/categories/:idcategory", function($idcategory){
+
+	$categories = new Categories();
+	$categories->get((int)$idcategory);
+
+	$page = new pagesite();
+	$page->setTpl("category",[
+		'category'=>$categories->getvalues(),
+		'products'=>''
+	]);
+
 });
 
 $app->run();
