@@ -27,7 +27,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="http://www.megaclick.com.br/admin/login"><b>Mega</b>Click</a>
+    <a href="http://www.megaclick.com.br/"><b>Mega</b>Click</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">

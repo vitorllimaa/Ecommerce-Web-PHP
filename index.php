@@ -4,24 +4,30 @@ session_start();
 require_once("vendor/autoload.php");
 
 use \Slim\Slim;
-use \Map\pageadmin;
+use \Map\page;
 use \Map\login;
-use Map\model\Categories;
+use \Map\model\Categories;
 use \Map\model\User;
+use \Map\pagesite;
 
 $app = new Slim();
 
 $app->config('debug', true);
 
 $app->get('/', function(){
-     var_dump("ressre");
+
+     $page = new pagesite([
+		 "header"=>false,
+		 "footer"=>false
+	 ]);
+	 $page->setTpl("index");
 
 });
 
 $app->get('/admin', function() {
 
 	User::verifyLogin();
-	$page = new pageadmin();
+	$page = new page();
 	$page->setTpl("index");	
 });
 
@@ -57,7 +63,7 @@ $app->get('/admin/users', function(){
 	
 	User::verifyLogin();
 	$users = User::listAll();
-	$page = new pageadmin();
+	$page = new page();
 	$page->setTpl("users", array(
 		"users"=>$users
 	));
@@ -66,7 +72,7 @@ $app->get('/admin/users', function(){
 
 $app->get("/admin/users/create", function(){
 	User::verifyLogin();
-	$page = new pageadmin();
+	$page = new page();
 	$page->setTpl("users-create");
 
 });
@@ -84,7 +90,7 @@ $app->get('/admin/users/:iduser', function($id_login){
 	User::verifyLogin();
     $user = new User;
 	$user->get($id_login);
-	$page = new pageadmin();
+	$page = new page();
 	$page->setTpl("users-update", array(
 		"user"=>$user->getValues()
 	));
@@ -117,7 +123,7 @@ $app->post("/admin/users/:iduser", function($id_login){
 
 $app->get("/admin/forgot", function(){
 	User::logout();
-	$page = new pageadmin([
+	$page = new page([
 		"header"=>false,
 		"footer"=>false
 	]);
@@ -136,7 +142,7 @@ $app->post("/admin/forgot", function(){
 
  $app->get("/admin/forgot/sent", function(){
     User::logout();
-	$page = new pageadmin([
+	$page = new page([
 		"header"=>false,
 		"footer"=>false
 	]);
@@ -149,7 +155,7 @@ $app->get("/admin/forgot/reset", function(){
    
 	User::logout();
 	$user = User::validForgotDecrypt($_GET["code"]);
-	$page = new pageadmin([
+	$page = new page([
 		"header"=>false,
 		"footer"=>false]);	
     $page->setTpl("forgot-reset", array(
@@ -170,7 +176,7 @@ $app->post("/admin/forgot/reset", function(){
 $app->get("/admin/categories", function(){
 	
 	User::verifyLogin();
-	$page = new pageadmin();
+	$page = new page();
 	$categories =  Categories::listAll();
 	
 	$page->setTpl("categories",[
@@ -180,7 +186,7 @@ $app->get("/admin/categories", function(){
 
 $app->get("/admin/categories/create", function(){
 	User::verifyLogin();
-	$page = new pageadmin();
+	$page = new page();
 	$categories =  Categories::listAll();
 	
 	$page->setTpl("categories-create",[
@@ -207,7 +213,7 @@ $app->get("/admin/categories/:idcategory/delete", function($idcategory){
 
 $app->get("/admin/categories/:idcategor", function($idcategory){
 	User::verifyLogin();
-	$page = new pageadmin();
+	$page = new page();
 	$categories = new Categories();
 	$categories->get((int)$idcategory);
 

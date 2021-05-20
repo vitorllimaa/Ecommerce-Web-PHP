@@ -5,7 +5,7 @@ namespace Map;
 use Rain\Tpl;
 
 
-class pageadmin{
+class page{
     private $tpl;
     private $options = [];
     private $defaults = [
