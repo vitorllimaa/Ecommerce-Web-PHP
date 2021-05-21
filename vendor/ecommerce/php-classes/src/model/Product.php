@@ -17,6 +17,18 @@ class Product extends Model {
 
     }
 
+    public static function checkList($list){
+
+        foreach ($list as &$row){
+
+            $p = new Product();
+            $p-> setData($row);
+            $row = $p->getValues();
+        }
+
+        return $list;
+    }
+
     public function save(){
         
         $sql = new Sql();
@@ -62,7 +74,68 @@ class Product extends Model {
             ":descategory"=>$descategory["descategory"]
 
         ));
-    }    
+    }  
+
+    public function checkPhone(){
+
+        if(file_exists($_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.
+        'res'.DIRECTORY_SEPARATOR.'site'.DIRECTORY_SEPARATOR.
+        'img'.DIRECTORY_SEPARATOR.'product'.DIRECTORY_SEPARATOR.
+        $this->getidproduct().'.jpg')){
+
+            $url = "/res/site/img/product/".$this->getidproduct().".jpg";
+        }else{
+            $url = "/res/site/img/product/embranco.jpg";
+        }
+
+        $this->setdesphoto($url);
+        
+    }
+
+    public function getValues(){
+
+        $this->checkPhone();
+        $values = parent::getValues();
+        return $values; 
+    }  
+
+    public function setPhoto($file){
+
+        if(!empty($_FILES['file']["name"])){
+        $extension = explode('.', $file['name']);
+        $extension = end($extension);
+        
+        switch ($extension){
+
+            case 'jpg':
+            case 'jpeg':
+                $image = imagecreatefromjpeg($file['tmp_name']);
+            
+            break;
+
+            case 'gif':
+                $image = imagecreatefromgif($file['tmp_name']);
+            break;
+            
+            case 'png':
+                $image = imagecreatefrompng($file['tmp_name']);
+            break;    
+        }
+
+        $dist = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.
+        'res'.DIRECTORY_SEPARATOR.'site'.DIRECTORY_SEPARATOR.
+        'img'.DIRECTORY_SEPARATOR.'product'.DIRECTORY_SEPARATOR.
+        $this->getidproduct().'.jpg';
+
+        imagejpeg($image, $dist);
+
+        imagedestroy($image);
+
+        $this->checkPhone();
+
+        }else{return '';}
+
+}
 
 
 }

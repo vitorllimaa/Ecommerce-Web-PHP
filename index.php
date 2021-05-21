@@ -19,8 +19,11 @@ $app->config('debug', true);
 
 $app->get('/', function(){
 
-     $page = new pagesite();
-	 $page->setTpl("index");
+	$product = Product::listAll();
+	$page = new pagesite();
+	$page->setTpl("index",[
+		"products"=>Product::checkList($product)
+	]);
 
 });
 
@@ -278,6 +281,28 @@ $app->get("/admin/products/:idproduct", function($idproduct){
 		"product"=>$product->getvalues()
 	]);
 
+});
+
+$app->post("/admin/products/:idproduct", function($idproduct){
+	
+	User::verifyLogin();
+	$product = new Product();
+	$product->get($idproduct);
+	$product->setData($_POST);
+	$product->save();
+	$product->setPhoto($_FILES["file"]);
+	header('Location: /admin/products');
+	exit;
+
+});
+
+$app->get("/admin/products/:idproduct/delete", function($idproduct){
+	
+	User::verifyLogin();
+	$product = new Product();
+	$product->delete($idproduct);
+	header('Location: /admin/products');
+	exit;
 });
 
 $app->run();
