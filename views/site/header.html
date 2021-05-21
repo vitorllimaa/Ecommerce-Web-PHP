@@ -76,7 +76,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1><a href="#"><img src="/res/site/img/TESTE.png" id="teste">Mega</a>Click</h1>
+                        <h1><a href="/"><img src="/res/site/img/TESTE.png" id="teste">Mega</a>Click</h1>
                     </div>
                 </div>
                 

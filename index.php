@@ -7,6 +7,7 @@ use \Slim\Slim;
 use \Map\page;
 use \Map\login;
 use \Map\model\Categories;
+use Map\model\Product;
 use \Map\model\User;
 use \Map\pagesite;
 
@@ -237,6 +238,44 @@ $app->get("/categories/:idcategory", function($idcategory){
 	$page->setTpl("category",[
 		'category'=>$categories->getvalues(),
 		'products'=>''
+	]);
+
+});
+
+$app->get("/admin/products", function(){
+
+    $Product = Product::listAll();
+	$page = new page();
+	$page->setTpl("products",[
+		"products"=>$Product
+	]);
+
+});
+
+$app->get("/admin/products/create", function(){
+	User::verifyLogin();
+	$page = new page();
+	$page->setTpl("products-create");
+
+});
+
+$app->post("/admin/products/create", function(){
+    User::verifyLogin();
+	$Product = new Product(); 
+	$Product->setData($_POST);
+	$Product->save();
+	header("Location: /admin/products");
+	exit;
+});
+
+$app->get("/admin/products/:idproduct", function($idproduct){
+	
+	User::verifyLogin();
+	$product = new Product();
+	$product->get($idproduct);
+	$page = new page();
+	$page->setTpl("products-update",[
+		"product"=>$product->getvalues()
 	]);
 
 });
