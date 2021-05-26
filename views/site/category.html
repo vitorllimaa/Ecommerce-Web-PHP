@@ -42,7 +42,7 @@
                     <div class="product-upper">
                         <img src="/res/site/img/product/{$value.idproduct}.jpg" alt="">
                     </div>
-                    <h2><a href="">{$value.desproduct}</a></h2>
+                    <h2><a href="/products/{$value.desurl}">{$value.desproduct}</a></h2>
                     <div class="product-carousel-price">
                         <ins>R${function="formatPrice($value.vlprice)"}</ins> <del>R${function="formatPrice($value.vlprice*2)"}</del>
                     </div>  
@@ -65,11 +65,9 @@
                             <span aria-hidden="true">«</span>
                             </a>
                         </li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
+                        {loop="$pages"}
+                        <li><a href="{$value.link}">{$value.page}</a></li>
+                        {/loop}
                         <li>
                             <a href="#" aria-label="Next">
                             <span aria-hidden="true">»</span>

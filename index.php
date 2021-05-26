@@ -14,6 +14,7 @@ use \Map\pagesite;
 $app = new Slim();
 // post - envia para o banco
 //get - envia para o html
+//$this->setData($valor) passa para o objeto e carrega com getvalue
 function formatPrice(float $price){
 	return number_format($price, 2, ",", ".");
 }
@@ -32,17 +33,41 @@ $app->get('/', function(){
 });
 
 $app->get("/categories/:idcategory", function($idcategory){
+    $page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
 
 	$categories = new Categories();
 	$categories->get((int)$idcategory); 
+	$pagination = $categories->getProductPage($page);
+
+	$pages = [];
+	for ($i=1; $i<=$pagination['pages']; $i++){
+		array_push($pages, [
+			'link'=>'/categories/'.$idcategory.'?page='.$i,
+			'page'=>$i
+		]);
+	}
 	$page = new pagesite();
 	$page->setTpl("category",[
 		'category'=>$categories->getvalues(),
-		'products'=>$categories->getProducts(true,$idcategory)
+		'products'=>$pagination["data"],
+		'pages'=>$pages
 	]);
 
 });
 
+$app->get("/products/:desurl", function($desurl){
+
+	$product = new Product();
+	$detailProduct = $product->getFromURL($desurl);
+    $categoryProduct = $product->getCategories($detailProduct[0]['idproduct']);
+	$page = new pagesite();
+	$page->setTpl("product-detail", array(
+		'product'=>$detailProduct[0],
+		'categories'=>$categoryProduct[0]
+	));
+
+});
+//rotas admin
 $app->get('/admin', function() {
 
 	User::verifyLogin();

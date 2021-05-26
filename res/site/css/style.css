@@ -390,7 +390,7 @@ h1 {
     left: 0;
     position: absolute;
     top: 0;
-    width: 100%;overflow: hidden;border: 1px solid #ddd;
+    width: 100%;overflow: hidden;
 }
 .product-hover:after {
   background: none repeat scroll 0 0 #000;
@@ -690,7 +690,7 @@ width: 10px;
 
 .product-bit-title h2 {
   font-family: raleway;
-  font-size: 50px;
+  font-size: 25px;
   font-weight: 200;
   margin: 0;
   padding: 50px 0;color: #fff;
