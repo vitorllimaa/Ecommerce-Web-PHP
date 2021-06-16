@@ -10,6 +10,7 @@ use \Map\model\Categories;
 use Map\model\Product;
 use \Map\model\User;
 use \Map\pagesite;
+use \Map\model\Cart;
 
 $app = new Slim();
 // post - envia para o banco
@@ -67,7 +68,17 @@ $app->get("/products/:desurl", function($desurl){
 	));
 
 });
+
+$app->get("/cart", function(){
+
+	$Cart = Cart::getFromSession();
+	$page = new pagesite();
+	$page->setTpl("cart");
+
+});
+
 //rotas admin
+
 $app->get('/admin', function() {
 
 	User::verifyLogin();

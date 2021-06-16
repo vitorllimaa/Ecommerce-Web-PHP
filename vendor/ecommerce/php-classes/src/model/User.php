@@ -10,6 +10,38 @@ class User extends Model {
     const SESSION = "User";
     const SECRET = "Maiscommerce2021";
     const SECRET_IV = "Maiscommerce2021_IV";
+
+    public static function getFromSession(){
+
+        $user = new User();
+        if(isset($_SESSION[User::SESSION]) && (int)$_SESSION[User::SESSION]['iduser'] > 0){
+
+           $user->setData($_SESSION[User::SESSION]);
+        }
+
+        return $user;
+    }
+
+    public static function checkLogin($inadmin = true){
+
+        if(!isset($_SESSION[User::SESSION])
+        ||
+        !$_SESSION[User::SESSION]
+        ||
+        !(int)$_SESSION[User::SESSION]["iduser"] > 0){
+            return false;
+        }else{
+
+            if($inadmin === true && (bool)$_SESSION[User::SESSION]["idadmin"] === true){
+                return true;
+            }else if($inadmin === false){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }
+
     public static function login($login, $password){
     
         $sql = new Sql();
@@ -54,6 +86,7 @@ class User extends Model {
         }
 
     }
+
     public static function logout(){
         $_SESSION[User::SESSION] = NULL;
     }
@@ -115,6 +148,7 @@ class User extends Model {
         
 
     }
+
     public static function getforgot($email){
         $sql = new Sql();
 
@@ -187,6 +221,7 @@ class User extends Model {
 
 
     }
+
     public function nameUser(){
         $sql = new Sql();
         $result1 = $sql->select("SELECT * FROM tb_login WHERE senha = :password", array(
