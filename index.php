@@ -13,9 +13,7 @@ use \Map\pagesite;
 use \Map\model\Cart;
 
 $app = new Slim();
-// post - envia para o banco
-//get - envia para o html
-//$this->setData($valor) passa para o objeto e carrega com getvalue
+
 function formatPrice(float $price){
 	return number_format($price, 2, ",", ".");
 }
