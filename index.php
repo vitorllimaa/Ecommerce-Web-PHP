@@ -72,9 +72,62 @@ $app->get("/products/:desurl", function($desurl){
 $app->get("/cart", function(){
 
 	$Cart = Cart::getFromSession();
+	$cart = new Cart();
 	$page = new pagesite();
-	$page->setTpl("cart");
+	$allCart = $cart->getProduct($cart->getFromSessionID());
+	$page->setTpl("cart", [
+		'cart'=>$cart->getValues(),
+		'products'=>$allCart
+		]);
 
+});
+
+$app->get("/cart/:idproduct/add", function($idproduct){
+
+	$product = new Product();
+
+	$product->get((int)$idproduct);
+
+	$cart = Cart::getFromSession();
+	
+	$Cart = new Cart();
+   
+	$Cart->addProduct($product, $Cart->getFromSessionID());
+
+	header("Location: /cart");
+	exit;
+});
+
+$app->get("/cart/:idproduct/minus", function($idproduct){
+
+	$product = new Product();
+
+	$product->get((int)$idproduct);
+
+	$cart = Cart::getFromSession();
+
+	$cart = new Cart();
+
+	$cart->removeProduct($product);
+
+	header("Location: /cart");
+	exit;
+});
+
+$app->get("/cart/:idproduct/remove", function($idproduct){
+
+	$product = new Product();
+
+	$product->get((int)$idproduct);
+
+	$cart = Cart::getFromSession();
+
+	$cart = new Cart();
+
+	$cart->removeProduct($product, true);
+
+	header("Location: /cart");
+	exit;
 });
 
 //rotas admin
