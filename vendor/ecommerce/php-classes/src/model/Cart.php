@@ -110,17 +110,17 @@ class Cart extends Model {
     public function removeProduct(Product $product, $all = false){
 
         $sql = new Sql();
-
+        
         if($all){
             $sql->query("UPDATE tb_cartsproducts SET dtremoved = now() WHERE idcart = :idcart AND idproduct = :idproduct AND
         dtremoved IS NULL",[
-            ':idcart'=>$this->getidcart(),
+            ':idcart'=>$this->getFromSessionID()[0]["idcart"],
             ':idproduct'=>$product->getidproduct()
         ]);
         }else{
         $sql->query("UPDATE tb_cartsproducts SET dtremoved = now() WHERE idcart = :idcart AND idproduct = :idproduct AND
         dtremoved IS NULL LIMIT 1",[
-            ':idcart'=>$this->getidcart(),
+            ':idcart'=>$this->getFromSessionID()[0]["idcart"],
             ':idproduct'=>$product->getidproduct()
         ]);
      }
@@ -140,6 +140,7 @@ class Cart extends Model {
         ORDER BY b.desproduct", [
             ':idcart'=>$idcart
         ]);
+
 
         return Product::checkList($rows);
         
