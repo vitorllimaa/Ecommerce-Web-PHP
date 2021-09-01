@@ -20,6 +20,8 @@ function formatPrice(float $price){
 
 $app->config('debug', true);
 
+//Rotas site
+
 $app->get('/', function(){
 
 	$product = Product::listAll();
@@ -123,6 +125,16 @@ $app->get("/cart/:idproduct/remove", function($idproduct){
 	$cart = new Cart();
 
 	$cart->removeProduct($product, true);
+
+	header("Location: /cart");
+	exit;
+});
+
+$app->post("/cart/freight", function(){
+
+	$cart = Cart::getFromSession();
+	$cart = new Cart();
+	$cart->setFreight($_POST['zipcode']);
 
 	header("Location: /cart");
 	exit;

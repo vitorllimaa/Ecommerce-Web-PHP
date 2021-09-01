@@ -385,7 +385,7 @@
           <div class="content">
             <span class="brand">
               <a href="#">
-                Admin Produtos
+                Mega Click
               </a>
             </span>
           </div>
@@ -430,7 +430,7 @@
                           <tr>
                             <td class="body-signature-cell">
                               <p>Obrigado!</p>
-                              <p class="body-signature">Admin Produtos</p>
+                              <p class="body-signature">Mega Click</p>
                             </td>
                           </tr>
                         </table>

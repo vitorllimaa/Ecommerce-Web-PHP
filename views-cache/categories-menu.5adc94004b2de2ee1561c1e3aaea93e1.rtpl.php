@@ -1,0 +1,1 @@
+<?php if(!class_exists('Rain\Tpl')){exit;}?><li><a href="/categories/8">INFORMATICA > SMART TV > SAMSUNG</a></li><li><a href="/categories/5">INFORMATICA > SMARTPHONE > LG</a></li><li><a href="/categories/10">INFORMATICA > SMARTPHONE > MOTOROLA</a></li><li><a href="/categories/6">INFORMATICA > SMARTPHONE > SAMSUNG</a></li>

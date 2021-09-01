@@ -146,6 +146,60 @@ class Cart extends Model {
         
     }
 
+    public function getProductsTotals(){
+
+        $sql = new Sql();
+
+        $session = $_SESSION["Cart"]["dessessionid"];
+
+        $idcart = $sql->select("SELECT idcart FROM tb_carts WHERE dessessionid = :dessessionid", [
+            ':dessessionid'=>$session
+        ]);
+
+        $result = $sql->select("SELECT SUM(vlprice) as vlprice, SUM(vlwidth) as vlwidth, SUM(vlheight) as vlheight, SUM(vllength) as vllength,
+        SUM(vlweight) as vlweight, count(*) as nrqtd FROM tb_products a INNER JOIN tb_cartsproducts b ON a.idproduct = b.idproduct
+        WHERE b.idcart = :idcart AND dtremoved IS NULL",[
+            ':idcart'=>$idcart[0]["idcart"]
+        ]);
+
+        return $results = count($result) > 0 ? $result[0] : [];
+    }
+
+    public function setFreight($nrzipcode){
+
+        $nrzipcode = str_replace("-", "", $nrzipcode);
+
+        $totals = $this->getProductsTotals();
+
+        if($totals > 0){
+
+            $qs = http_build_query([
+                'nCdEmpresa' => '',
+                'sDsSenha' => '',
+                'nCdServico' => '41106',
+                'sCepOrigem' => '07174250',
+                'sCepDestino' => $nrzipcode,
+                'nVlPeso' => $totals['vlweight'],
+                'nCdFormato' => '1',
+                'nVlComprimento' => $totals['vllength'],
+                'nVlAltura' => $totals['vlheight'],
+                'nVlLargura' => $totals['vlwidth'],
+                'nVlDiametro' => '0',
+                'sCdMaoPropria' => 'S',
+                'nVlValorDeclarado' => $totals['vlprice'],
+                'sCdAvisoRecebimento' => 'S'
+            ]);
+        
+            $xml = (array)simplexml_load_file(utf8_encode("http://ws.correios.com.br/calculador/CalcPrecoPrazo.asmx/CalcPrecoPrazo?".$qs));
+            
+            echo json_encode($xml);
+            exit;
+            
+        } else {
+
+        }
+    }
+
 }
 
 ?>
