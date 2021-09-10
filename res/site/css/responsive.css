@@ -46,7 +46,7 @@ input[type="submit"], button[type="submit"] {
   height: 200px;
 }    
 .footer-top-area {
-  padding: 35px 0 125px;
+  padding: 0px 0 125px;
 }  
 div.cart-collaterals ul.products li.product {
   width: 190px;
@@ -124,7 +124,7 @@ div.cart-collaterals ul.products li.product {
   height: 200px;
 }    
 .footer-top-area {
-  padding: 35px 0 125px;
+  padding: 0px 0 125px;
 } 
     
 .single-product-widget, .footer-about-us, .footer-menu {
@@ -204,4 +204,32 @@ div.coupon input[type="text"] {
     
   
     
+}
+
+.lds-dual-ring {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 10% 0 0 19vh;
+
+}
+
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #160b30;
+  border-color: #160b30 transparent #160b30 transparent;
+  animation: lds-dual-ring 1.0s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

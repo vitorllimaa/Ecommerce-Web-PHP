@@ -90,6 +90,7 @@
 <!-- Slider -->
 <script type="text/javascript" src="/res/site/js/bxslider.min.js"></script>
 <script type="text/javascript" src="/res/site/js/script.slider.js"></script>
-<script src="/res/site/js/cart.js"></script>
+<script src="/res/site/js/Controller.js"></script>
+<script src="/res/site/js/app.js"></script>
 </body>
 </html>

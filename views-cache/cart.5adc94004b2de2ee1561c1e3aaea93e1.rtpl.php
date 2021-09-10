@@ -66,7 +66,7 @@
                                         </td>
 
                                         <td class="product-subtotal">
-                                            <span class="amount"><?php echo htmlspecialchars( $value1["vltotal"], ENT_COMPAT, 'UTF-8', FALSE ); ?></span> 
+                                            <span class="amount"><?php echo htmlspecialchars( $value1["vltotal"], ENT_COMPAT, 'UTF-8', FALSE ); ?> </span> 
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -85,7 +85,6 @@
                                         <input type="text" placeholder="00000-000" value="" id="cep" class="input-text" name="zipcode">
                                         <input type="submit" formmethod="post" id="submit-freight" formaction="/cart/freight" value="CÁLCULAR" class="button">
                                     </div>
-
                                 </div>
 
                                 <div class="cart_totals ">
@@ -96,17 +95,17 @@
                                         <tbody>
                                             <tr class="cart-subtotal">
                                                 <th>Subtotal</th>
-                                                <td><span class="amount">$700.00</span></td>
+                                                <td><span class="amount">$0.00</span></td>
                                             </tr>
 
                                             <tr class="shipping">
                                                 <th>Frete</th>
-                                                <td>$5.00 <small>prazo de 0 dia(s)</small></td>
+                                                <td>$0.00 <small>prazo de 0 dia(s)</small></td>
                                             </tr>
 
                                             <tr class="order-total">
                                                 <th>Total</th>
-                                                <td><strong><span class="amount">$705.00</span></strong> </td>
+                                                <td><strong><span class="amount">$0.00</span></strong> </td>
                                             </tr>
                                         </tbody>
                                     </table>
